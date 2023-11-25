@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:value_voyage/screens/landing_screen.dart';
 
-void main() {
-  runApp(const ValueVoyage());
-}
+void main() => runApp(const ValueVoyage());
 
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
   // Override behavior methods and getters like dragDevices
