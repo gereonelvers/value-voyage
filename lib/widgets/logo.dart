@@ -11,16 +11,16 @@ class Logo extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const Padding(
             padding: EdgeInsets.only(right: 16.0),
-            child: Image(image: AssetImage("assets/img/logo.png"), height: 70),
+            child: Image(image: AssetImage("assets/img/logo.png"), height: 48),
           ),
           Text(
             "ValueVoyage",
             style: GoogleFonts.inter(
-                fontSize: 36, fontWeight: FontWeight.w200, color: Colors.white),
+                fontSize: 24, fontWeight: FontWeight.w200, color: Colors.white),
           )
         ],
       ),
