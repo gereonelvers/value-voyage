@@ -60,7 +60,7 @@ class MainScreen extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 6.0),
                                   child: Text(
-                                    "Login",
+                                    "My Account",
                                     style: GoogleFonts.inter(textStyle: const TextStyle(fontSize: 14, color: Colors.white)),
                                   ),
                                 )
