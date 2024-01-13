@@ -2,11 +2,13 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 
 import '../../util/application_screen.dart';
 import '../../util/route.dart';
+import '../../util/utils.dart';
 
 part 'application_event.dart';
 
@@ -18,7 +20,14 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
 
   List<String> cities = const ["Hamburg", "Berlin", "Munich"];
   List<NavigationRoute> routes = [];
-  int selectedRoute = 0;
+  NavigationRoute selectedRoute = NavigationRoute(
+    arrivalTime: DateTime.now(),
+    departureTime: DateTime.now(),
+    startAddress: "",
+    endAddress: "",
+    steps: const [],
+    fare: 99.90,
+  );
 
   double currentInsuranceValue = 2000;
   int selectedInsuranceCard = 0;
@@ -27,7 +36,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
   DateTime time = DateTime.now();
 
   ApplicationBloc() : super(ApplicationInitial()) {
-    sessionID = generateRandomString(10);
+    sessionID = Utils.randomString(10);
     on<ApplicationEvent>((event, emit) {});
     on<UpdateScreenEvent>((event, emit) {
       emit(ApplicationUpdating());
@@ -58,6 +67,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
         departureTime: DateTime.now(),
         startAddress: "Hamburg Central Station",
         endAddress: "Munich Central Station",
+        fare: 99.9,
         steps: [
           NavigationRouteStep(
               departureStop: "Hamburg Central Station",
@@ -100,6 +110,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
               lineShortName: 'N150',
               punctuality: 0.58),
         ],
+        fare: 99.9,
       ),
     ];
     add(UpdateScreenEvent());
@@ -113,11 +124,6 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     print("Autocomplete:");
     print(res.statusCode);
     print(res.body);
-  }
-
-  String generateRandomString(int len) {
-    var r = Random();
-    return String.fromCharCodes(List.generate(len, (index) => r.nextInt(33) + 89));
   }
 
   navigateTo(ApplicationScreen screen) {

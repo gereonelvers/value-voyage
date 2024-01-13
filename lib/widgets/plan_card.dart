@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 
 class PlanCard extends StatelessWidget {
   final String title;
-  final String arrivalTime;
+  final Icon iconOne;
+  final String featureOne;
+  final Icon iconTwo;
+  final String featureTwo;
   final bool isSelected;
 
   const PlanCard(
       {super.key,
       required this.title,
-      required this.arrivalTime,
+      required this.iconOne,
+      required this.featureOne,
+      required this.iconTwo,
+      required this.featureTwo,
       this.isSelected = false});
 
   @override
@@ -32,31 +38,31 @@ class PlanCard extends StatelessWidget {
               style: const TextStyle(fontSize: 20),
             ),
           ),
-          const Row(
+          Row(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 12.0, right: 6),
-                child: Icon(Icons.check_circle_outline_rounded),
+                padding: const EdgeInsets.only(left: 12.0, right: 6),
+                child: iconOne,
               ),
               Padding(
-                padding: EdgeInsets.only(right: 8),
+                padding: const EdgeInsets.only(right: 8),
                 child: Text(
-                  "Full trip coverage",
-                  style: TextStyle(fontSize: 16),
+                  featureOne,
+                  style: const TextStyle(fontSize: 16),
                 ),
               ),
             ],
           ),
           Row(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 12.0, right: 6),
-                child: Icon(Icons.check_circle_outline_rounded),
+              Padding(
+                padding: const EdgeInsets.only(left: 12.0, right: 6),
+                child: iconTwo,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 8),
                 child: Text(
-                  "Arrival within $arrivalTime",
+                  featureTwo,
                   style: const TextStyle(fontSize: 16),
                 ),
               ),

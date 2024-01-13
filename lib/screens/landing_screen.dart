@@ -8,6 +8,7 @@ import 'package:value_voyage/util/application_screen.dart';
 import 'package:intl/intl.dart';
 
 import '../state/application/application_bloc.dart';
+import '../util/utils.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
@@ -27,21 +28,23 @@ class LandingScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(24.0),
                       child: DefaultTextStyle(
-                        style: GoogleFonts.inter(textStyle: const TextStyle(fontSize: 48, color: Colors.white)),
+                        style: GoogleFonts.inter(textStyle: const TextStyle(fontSize: 60, color: Colors.white, fontWeight: FontWeight.w400)),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             const Padding(
                               padding: EdgeInsets.only(bottom: 40.0),
-                              child: Text("Make your journey "),
+                              child: Text(
+                                "Make your journey ",
+                              ),
                             ),
                             Stack(
                               children: [
                                 const Center(
                                   child: SizedBox(
-                                    height: 200,
-                                    width: 300,
+                                    height: 235,
+                                    width: 400,
                                   ),
                                 ),
                                 Center(
@@ -198,23 +201,12 @@ class LandingScreen extends StatelessWidget {
   }
 
   submit(ApplicationBloc bloc, BuildContext context) async {
-    bloc.getMockRoutes();
+    bloc.getRoutes();
     if (bloc.originTextController.text != "" && bloc.destinationTextController.text != "") {
       bloc.currentScreen = ApplicationScreen.selection;
       bloc.add(UpdateScreenEvent());
     } else {
-      MotionToast(
-        icon: Icons.error_outline,
-        displaySideBar: false,
-        primaryColor: Colors.red,
-        title: const Text("Error"),
-        description: const Text("Please fill out all fields."),
-        position: MotionToastPosition.bottom,
-        animationType: AnimationType.fromBottom,
-        animationCurve: Curves.bounceOut,
-        animationDuration: const Duration(milliseconds: 250),
-        toastDuration: const Duration(seconds: 2),
-      ).show(context);
+      Utils.showToast(context, "Error", "Please fill out all fields.");
     }
   }
 }

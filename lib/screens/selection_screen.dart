@@ -40,14 +40,14 @@ class SelectionScreen extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text("Going from "),
+                              const Text("Connections from "),
                               MouseRegion(
                                 cursor: SystemMouseCursors.click,
                                 child: GestureDetector(
                                     onTap: () => applicationBloc.navigateTo(ApplicationScreen.landing),
                                     child: Text(
                                       applicationBloc.originTextController.text,
-                                      style: const TextStyle(decoration: TextDecoration.underline, color: Colors.black45),
+                                      style: const TextStyle(fontWeight: FontWeight.bold),
                                     )),
                               ),
                               const Text(" to "),
@@ -57,7 +57,7 @@ class SelectionScreen extends StatelessWidget {
                                     onTap: () => applicationBloc.navigateTo(ApplicationScreen.landing),
                                     child: Text(
                                       applicationBloc.destinationTextController.text,
-                                      style: const TextStyle(decoration: TextDecoration.underline, color: Colors.black45),
+                                      style: const TextStyle(fontWeight: FontWeight.bold),
                                     )),
                               ),
                               const Text(" on "),
@@ -67,7 +67,7 @@ class SelectionScreen extends StatelessWidget {
                                     onTap: () => applicationBloc.navigateTo(ApplicationScreen.landing),
                                     child: Text(
                                       DateFormat("dd.MM.yy 'after' hh:mm a").format(applicationBloc.time),
-                                      style: const TextStyle(decoration: TextDecoration.underline, color: Colors.black45),
+                                      style: const TextStyle(fontWeight: FontWeight.bold),
                                     )),
                               ),
                             ],
