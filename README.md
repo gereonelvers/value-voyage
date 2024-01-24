@@ -1,16 +1,10 @@
-# value_voyage
+# ValueVoyage
 
-A new Flutter project.
+Plan Perfectly. Arrive Promptly. 
 
-## Getting Started
+## Idea
+ValueVoyage improves business travel by predicting the likelihood of punctual arrival at the time of booking. This means that business travel can more often be conducted via train, which is currently not an option in many cases due to unpredictable arrival times. Thus, we make travel not just more plannable, but also cheaper and more sustainable.
 
-This project is a starting point for a Flutter application.
+## About
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project was done as part of the [BPG Seminar @ TUM](https://academy.unternehmertum.de/programs/business-plan-basic-seminar) in the winter semester 2023/24. This repo contains the code for the Flutter frontend (also consider the [backend](https://github.com/gereonelvers/value_voyage_server), which is currently just a Proxy for the [Google Maps Directions API](https://developers.google.com/maps/documentation/directions/overview)).
